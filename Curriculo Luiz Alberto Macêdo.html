@@ -1,5 +1,21 @@
 <head>
   <title>Curriculum Vitae</title>
+  <script>
+    function criarClassificacao(skill, numEstrelas) {
+        let html = '<li style="font-size: 1.2em">' + skill;
+                  
+        for (let i = 1; i <= numEstrelas; i++) {
+          html += '<span style="font-size:100%; color:#e99700; padding: 0.1em">&starf;</span>';
+        }
+                
+        for (let i = numEstrelas + 1; i <= 5; i++) {
+          html += '<span style="font-size:100%; color:#e99700; padding: 0.1em">&star;</span>';
+        }
+                
+        html += '</li>';
+        return html;
+    }
+  </script>
   <style>
     .pagina {
       width: 70em;
@@ -127,56 +143,23 @@
         </section>
     </br>
         <h3 style="font-size: 2em; padding-left: 0.8em">HARD SKILLS</h3>
-        <ul>
-            <li style="font-size: 1.2em">HTML:
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-            </li>
-            <li style="font-size: 1.2em">CSS:
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-            </li>
-            <li style="font-size: 1.2em">JavaScript:
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-            </li>
-            <li style="font-size: 1.2em">Figma:
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-            </li>
-            <li style="font-size: 1.2em">Git:
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-            </li>
-            <li style="font-size: 1.2em">Banco de Dados:
-                <span style="font-size:100%;color:#e99700;">&starf;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-            </li>
-            <li style="font-size: 1.2em">React:
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-                <span style="font-size:100%;color:#e99700;">&star;</span>
-            </li>
+        <ul id="rating_list">
+          <script>
+            let dict_skills = {
+              "HTML: ": 4,
+              "CSS: ": 3,
+              "JavaScript: ": 3,
+              "Figma: ": 3,
+              "Git: ": 2,
+              "Banco de Dados: ": 1,
+              "React: ": 0
+            }
+
+            let rating_list = document.getElementById('rating_list');
+            for (const [skill, numEstrelas] of Object.entries(dict_skills)) {
+              rating_list.innerHTML += criarClassificacao(skill, numEstrelas);
+            }   
+          </script>
         </ul>
     </br>
         <h3 style="font-size: 2em; padding-left: 1.1em">FORMAÇÃO</h3>
