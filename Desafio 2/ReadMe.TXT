@@ -1,0 +1,1 @@
+Este é o Desafio 2, que consiste na implementação de uma tela em HTML e CSS, seguindo um layout desenvolvido para esta atividade.
